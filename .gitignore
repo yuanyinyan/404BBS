@@ -1,5 +1,5 @@
-gen
-out
+gen/
+out/
 .idea/
 *.iml
 project.properties
