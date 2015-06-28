@@ -33,7 +33,7 @@
     <string name="me">我</string>
     <string name="discover">发现</string>
     <string name="leave_message">留言</string>
-    <string name="emptyStr" />
+    <string name="emptyStr"/>
     <string name="avatar">头像</string>
     <string name="username">用户名</string>
     <string name="nickname">昵称</string>
@@ -62,7 +62,7 @@
     <string name="login_username_hint">请输入用户名</string>
     <string name="ensurePasswordHint">请在此输入密码</string>
     <string name="login_password_hint">请输入密码</string>
-    <string name="ensurePassword">确认密码 </string>
+    <string name="ensurePassword">确认密码</string>
     <string name="register">注册</string>
 
     <string name="password_can_not_null">密码不能为空</string>
@@ -76,7 +76,7 @@
     <string name="metres">米</string>
     <string name="unknown">未知</string>
     <string name="recent_login_time">最近登录时间:</string>
-    <string name="account">账号 </string>
+    <string name="account">账号</string>
     <string name="search">搜索</string>
 
     <string name="xlistview_header_hint_normal">下拉刷新</string>

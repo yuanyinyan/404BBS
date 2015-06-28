@@ -7,11 +7,11 @@ import java.util.List;
 //GroupMemberEvent
 public interface GroupEventListener {
 
-  void onJoined(Group group);
+    void onJoined(Group group);
 
-  void onMemberJoin(Group group, List<String> joinedPeerIds);
+    void onMemberJoin(Group group, List<String> joinedPeerIds);
 
-  void onMemberLeft(Group group, List<String> leftPeerIds);
+    void onMemberLeft(Group group, List<String> leftPeerIds);
 
-  void onQuit(Group group);
+    void onQuit(Group group);
 }

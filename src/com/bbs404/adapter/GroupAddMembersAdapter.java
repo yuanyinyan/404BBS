@@ -13,20 +13,20 @@ import java.util.List;
 
 public class GroupAddMembersAdapter extends BaseCheckListAdapter<User> {
 
-  public GroupAddMembersAdapter(Context ctx, List<User> datas) {
-    super(ctx, datas);
-  }
-
-  @Override
-  public View getView(final int position, View conView, ViewGroup parent) {
-    if (conView == null) {
-      conView = View.inflate(ctx, R.layout.group_add_members_item, null);
+    public GroupAddMembersAdapter(Context ctx, List<User> datas) {
+        super(ctx, datas);
     }
-    User user = datas.get(position);
-    ChatUtils.setUserView(conView, user);
-    CheckBox checkBox = ViewHolder.findViewById(conView, R.id.checkbox);
-    setCheckBox(checkBox, position);
-    checkBox.setOnCheckedChangeListener(new CheckListener(position));
-    return conView;
-  }
+
+    @Override
+    public View getView(final int position, View conView, ViewGroup parent) {
+        if (conView == null) {
+            conView = View.inflate(ctx, R.layout.group_add_members_item, null);
+        }
+        User user = datas.get(position);
+        ChatUtils.setUserView(conView, user);
+        CheckBox checkBox = ViewHolder.findViewById(conView, R.id.checkbox);
+        setCheckBox(checkBox, position);
+        checkBox.setOnCheckedChangeListener(new CheckListener(position));
+        return conView;
+    }
 }

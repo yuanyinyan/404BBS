@@ -12,7 +12,6 @@ import com.bbs404.R;
 import com.bbs404.avobject.User;
 import com.bbs404.base.App;
 import com.bbs404.service.AddRequestService;
-import com.bbs404.service.CloudService;
 import com.bbs404.service.UserService;
 import com.bbs404.util.NetAsyncTask;
 import com.bbs404.util.Utils;

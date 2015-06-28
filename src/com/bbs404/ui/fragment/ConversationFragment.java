@@ -21,99 +21,99 @@ import com.bbs404.util.Utils;
 
 import java.util.List;
 
-public class ConversationFragment extends BaseFragment implements AdapterView.OnItemClickListener ,MsgListener{
-  ListView listview;
-  RecentMessageAdapter adapter;
+public class ConversationFragment extends BaseFragment implements AdapterView.OnItemClickListener, MsgListener {
+    ListView listview;
+    RecentMessageAdapter adapter;
 
-  @Override
-  public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-    return inflater.inflate(R.layout.message_fragment, container,false);
-  }
-
-  @Override
-  public void onActivityCreated(Bundle savedInstanceState) {
-    super.onActivityCreated(savedInstanceState);
-    initView();
-    refresh();
-  }
-
-  private void initView() {
-    headerLayout.showTitle(R.string.messages);
-    listview = (ListView) getView().findViewById(R.id.convList);
-    adapter = new RecentMessageAdapter(getActivity());
-    listview.setAdapter(adapter);
-    listview.setOnItemClickListener(this);
-  }
-
-  @Override
-  public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-    // TODO Auto-generated method stub
-    Conversation recent = (Conversation) adapter.getItem(position);
-    if (recent.msg.getRoomType()== RoomType.Single) {
-      ChatActivity.goUserChat(getActivity(), recent.toUser.getObjectId());
-    } else {
-      ChatActivity.goGroupChat(getActivity(), recent.chatGroup.getObjectId());
-    }
-  }
-
-  private boolean hidden;
-
-  @Override
-  public void onHiddenChanged(boolean hidden) {
-    super.onHiddenChanged(hidden);
-    this.hidden = hidden;
-    if (!hidden) {
-      refresh();
-    }
-  }
-
-  public void refresh() {
-    new GetDataTask(ctx, false).execute();
-  }
-
-  @Override
-  public void onResume() {
-    super.onResume();
-    if (!hidden) {
-      refresh();
-    }
-    GroupMsgReceiver.addMsgListener(this);
-    MsgReceiver.addMsgListener(this);
-  }
-
-  @Override
-  public void onPause() {
-    super.onPause();
-    MsgReceiver.removeMsgListener(this);
-    GroupMsgReceiver.removeMsgListener(this);
-  }
-
-  @Override
-  public boolean onMessageUpdate(String otherId) {
-    refresh();
-    return false;
-  }
-
-  class GetDataTask extends NetAsyncTask {
-    List<Conversation> conversations;
-
-    GetDataTask(Context cxt, boolean openDialog) {
-      super(cxt, openDialog);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.message_fragment, container, false);
     }
 
     @Override
-    protected void doInBack() throws Exception {
-      conversations = ChatService.getConversationsAndCache();
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        initView();
+        refresh();
+    }
+
+    private void initView() {
+        headerLayout.showTitle(R.string.messages);
+        listview = (ListView) getView().findViewById(R.id.convList);
+        adapter = new RecentMessageAdapter(getActivity());
+        listview.setAdapter(adapter);
+        listview.setOnItemClickListener(this);
     }
 
     @Override
-    protected void onPost(Exception e) {
-      if (e != null) {
-        Utils.toast(ctx, R.string.pleaseCheckNetwork);
-      } else {
-        adapter.setDatas(conversations);
-        adapter.notifyDataSetChanged();
-      }
+    public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+        // TODO Auto-generated method stub
+        Conversation recent = (Conversation) adapter.getItem(position);
+        if (recent.msg.getRoomType() == RoomType.Single) {
+            ChatActivity.goUserChat(getActivity(), recent.toUser.getObjectId());
+        } else {
+            ChatActivity.goGroupChat(getActivity(), recent.chatGroup.getObjectId());
+        }
     }
-  }
+
+    private boolean hidden;
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        this.hidden = hidden;
+        if (!hidden) {
+            refresh();
+        }
+    }
+
+    public void refresh() {
+        new GetDataTask(ctx, false).execute();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (!hidden) {
+            refresh();
+        }
+        GroupMsgReceiver.addMsgListener(this);
+        MsgReceiver.addMsgListener(this);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        MsgReceiver.removeMsgListener(this);
+        GroupMsgReceiver.removeMsgListener(this);
+    }
+
+    @Override
+    public boolean onMessageUpdate(String otherId) {
+        refresh();
+        return false;
+    }
+
+    class GetDataTask extends NetAsyncTask {
+        List<Conversation> conversations;
+
+        GetDataTask(Context cxt, boolean openDialog) {
+            super(cxt, openDialog);
+        }
+
+        @Override
+        protected void doInBack() throws Exception {
+            conversations = ChatService.getConversationsAndCache();
+        }
+
+        @Override
+        protected void onPost(Exception e) {
+            if (e != null) {
+                Utils.toast(ctx, R.string.pleaseCheckNetwork);
+            } else {
+                adapter.setDatas(conversations);
+                adapter.notifyDataSetChanged();
+            }
+        }
+    }
 }

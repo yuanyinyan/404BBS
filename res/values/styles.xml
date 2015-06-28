@@ -158,7 +158,7 @@
         <item name="android:background">@color/transparent</item>
     </style>
 
-    <style name="Animations" />
+    <style name="Animations"/>
 
     <style name="Animations.GrowFromBottom">
         <item name="@android:windowEnterAnimation">@anim/grow_from_bottom</item>
@@ -278,7 +278,7 @@
         <item name="android:layout_gravity">bottom</item>
         <item name="android:src">@drawable/default_user_avatar</item>
     </style>
-   
+
 
     <style name="ActionBarTitleStyle">
         <item name="android:textColor">#fff</item>

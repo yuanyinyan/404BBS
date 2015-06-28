@@ -51,5 +51,4 @@ public class CommentInfo extends Info {
     }
 
 
-
 }

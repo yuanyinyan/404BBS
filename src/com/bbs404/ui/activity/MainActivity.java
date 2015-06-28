@@ -9,6 +9,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import com.avos.avoscloud.AVGeoPoint;
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
 import com.bbs404.R;
 import com.bbs404.avobject.User;
 import com.bbs404.base.App;
@@ -16,13 +20,12 @@ import com.bbs404.service.ChatService;
 import com.bbs404.service.PreferenceMap;
 import com.bbs404.service.UpdateService;
 import com.bbs404.service.receiver.FinishReceiver;
-import com.bbs404.ui.fragment.*;
+import com.bbs404.ui.fragment.ContactFragment;
+import com.bbs404.ui.fragment.ConversationFragment;
+import com.bbs404.ui.fragment.MainPostFragment;
+import com.bbs404.ui.fragment.MySpaceFragment;
 import com.bbs404.util.ChatUtils;
 import com.bbs404.util.Logger;
-import com.baidu.location.BDLocation;
-import com.baidu.location.BDLocationListener;
-import com.baidu.location.LocationClient;
-import com.baidu.location.LocationClientOption;
 
 public class MainActivity extends BaseActivity {
     Button conversationBtn, contactBtn, discoverBtn, mySpaceBtn;

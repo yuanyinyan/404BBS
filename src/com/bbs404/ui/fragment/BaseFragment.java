@@ -8,13 +8,13 @@ import com.bbs404.ui.view.HeaderLayout;
 import com.bbs404.R;
 
 public class BaseFragment extends Fragment {
-  HeaderLayout headerLayout;
-  Context ctx;
+    HeaderLayout headerLayout;
+    Context ctx;
 
-  @Override
-  public void onActivityCreated(Bundle savedInstanceState) {
-    super.onActivityCreated(savedInstanceState);
-    ctx = getActivity();
-    headerLayout = (HeaderLayout) getView().findViewById(R.id.headerLayout);
-  }
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        ctx = getActivity();
+        headerLayout = (HeaderLayout) getView().findViewById(R.id.headerLayout);
+    }
 }

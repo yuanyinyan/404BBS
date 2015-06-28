@@ -7,10 +7,7 @@ import android.widget.EditText;
 import com.bbs404.R;
 import com.bbs404.avobject.PostObject;
 import com.bbs404.avobject.User;
-import com.bbs404.entity.PostInfo;
 import com.bbs404.util.SimpleNetTask;
-
-import java.util.ArrayList;
 
 /**
  * Created in com.bbs404.ui.activity.
@@ -40,7 +37,7 @@ public class EditPostActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.send:
-                new SimpleNetTask(this){
+                new SimpleNetTask(this) {
 
                     @Override
                     protected void doInBack() throws Exception {

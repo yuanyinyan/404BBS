@@ -6,8 +6,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.RadioGroup;
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.SignUpCallback;
 import com.bbs404.R;
 import com.bbs404.avobject.User;
 import com.bbs404.base.App;
