@@ -44,7 +44,10 @@ public class CommentAdapter extends BaseListAdapter<CommentInfo> {
         TextView time = ViewHolder.findViewById(convertView, R.id.time_text);
         TextView context = ViewHolder.findViewById(convertView, R.id.content_text);
         ImageView comment = ViewHolder.findViewById(convertView, R.id.comment_view);
+        TextView commentNumber = ViewHolder.findViewById(convertView, R.id.comment_number);
         comment.setVisibility(View.GONE);
+        commentNumber.setVisibility(View.GONE);
+        container.setClickable(false);
 
         UserService.displayAvatar(commentInfo.getAvatarUrl(), avatar);
         name.setText(commentInfo.getName());

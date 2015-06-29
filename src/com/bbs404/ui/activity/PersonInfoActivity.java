@@ -70,7 +70,7 @@ public class PersonInfoActivity extends BaseActivity implements OnClickListener 
             initActionBar(R.string.personalInfo);
             avatarLayout.setOnClickListener(this);
             genderLayout.setOnClickListener(this);
-            avatarArrowView.setVisibility(View.VISIBLE);
+            avatarArrowView.setVisibility(View.INVISIBLE);
             chatBtn.setVisibility(View.GONE);
             addFriendBtn.setVisibility(View.GONE);
         } else {

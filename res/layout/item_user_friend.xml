@@ -15,9 +15,9 @@
 
     <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/common_list_item_height"
+            android:layout_height="wrap_content"
             android:layout_below="@id/alpha"
-            android:layout_margin="5dp">
+            android:padding="5dp">
 
         <ImageView
                 android:id="@+id/img_friend_avatar"
@@ -34,7 +34,7 @@
                 android:text="name"
                 android:layout_centerVertical="true"
                 android:singleLine="true"
-                android:textSize="20sp"/>
+                android:textSize="16sp"/>
     </RelativeLayout>
 
 

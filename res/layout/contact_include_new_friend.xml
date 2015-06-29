@@ -3,13 +3,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="3dp">
+                android:orientation="horizontal">
 
     <LinearLayout
             android:id="@+id/layout_new"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/btn_selector"
             android:clickable="true"
             android:orientation="horizontal">
 
@@ -34,7 +34,7 @@
                     android:layout_height="@dimen/tip_icon_size"
                     android:layout_marginTop="5dp"
                     android:layout_gravity="top|right"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     android:contentDescription="@string/action_settings"
                     android:src="@drawable/msg_tips"/>
         </FrameLayout>
@@ -48,7 +48,7 @@
                 android:padding="5dp"
                 android:singleLine="true"
                 android:text="@string/new_friends"
-                android:textSize="20sp"/>
+                android:textSize="16sp"/>
     </LinearLayout>
 
     <View
@@ -56,13 +56,15 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/base_line_width_1"
             android:layout_below="@id/layout_new"
-            android:background="@drawable/base_horizontal_line"></View>
+            android:visibility="gone"
+            android:background="@drawable/base_horizontal_line"/>
 
     <LinearLayout
             android:id="@+id/layout_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clickable="true"
+            android:visibility="gone"
             android:layout_below="@+id/layout_new"
             android:orientation="horizontal">
 
@@ -99,6 +101,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/base_line_width_1"
             android:layout_below="@id/layout_group"
-            android:background="@drawable/base_horizontal_line"></View>
+            android:visibility="gone"
+            android:background="@drawable/base_horizontal_line"/>
 
 </RelativeLayout>

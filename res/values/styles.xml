@@ -289,6 +289,7 @@
     <style name="ActionBarStyle" parent="@android:style/Widget.Holo.ActionBar">
         <item name="android:background">@color/common_blue</item>
         <item name="android:titleTextStyle">@style/ActionBarTitleStyle</item>
+        <item name="android:displayOptions">showTitle</item>
         <!--<item name="android:icon">@android:color/transparent</item>-->
     </style>
 

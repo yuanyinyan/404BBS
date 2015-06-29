@@ -18,8 +18,8 @@ import com.avos.avoscloud.SaveCallback;
 import com.bbs404.R;
 import com.bbs404.avobject.User;
 import com.bbs404.service.ChatService;
-import com.bbs404.service.UpdateService;
 import com.bbs404.service.UserService;
+import com.bbs404.ui.activity.ChangeNameActivity;
 import com.bbs404.ui.activity.NotifySettingActivity;
 import com.bbs404.util.*;
 
@@ -92,10 +92,11 @@ public class MySpaceFragment extends BaseFragment implements View.OnClickListene
         } else if (id == R.id.notifyLayout) {
             Utils.goActivity(ctx, NotifySettingActivity.class);
         } else if (id == R.id.updateLayout) {
-            UpdateService updateService = UpdateService.getInstance(getActivity());
-            updateService.showSureUpdateDialog();
-        }else if(id==R.id.usernameLayout){
-            Utils.toast("此处应可以修改名字!");
+            Utils.toast("检查更新!");
+//            UpdateService updateService = UpdateService.getInstance(getActivity());
+//            updateService.showSureUpdateDialog();
+        } else if (id == R.id.usernameLayout) {
+            Utils.goActivity(getActivity(), ChangeNameActivity.class);
         }
     }
 
@@ -192,5 +193,11 @@ public class MySpaceFragment extends BaseFragment implements View.OnClickListene
             }
         }
         return path;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        refresh();
     }
 }
