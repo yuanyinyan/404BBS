@@ -5,7 +5,9 @@
               android:background="@color/theme_bg_color"
               android:orientation="vertical">
 
-    <LinearLayout style="@style/Register_Input">
+    <LinearLayout
+            android:layout_marginTop="40dp"
+            style="@style/Register_Input">
 
         <TextView
                 style="@style/My.TextView._Black"
@@ -18,7 +20,9 @@
         <EditText
                 android:id="@+id/usernameEdit"
                 style="@style/Register_Edit"
-                android:hint="@string/login_username_hint"/>
+                android:hint="@string/login_username_hint">
+            <requestFocus/>
+        </EditText>
     </LinearLayout>
 
     <LinearLayout style="@style/Register_Input">
@@ -55,7 +59,8 @@
                 android:hint="@string/ensurePasswordHint"/>
     </LinearLayout>
 
-    <LinearLayout style="@style/Register_Input">
+    <LinearLayout style="@style/Register_Input"
+                  android:visibility="gone">
 
         <TextView
                 style="@style/My.TextView._Black"

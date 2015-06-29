@@ -60,7 +60,7 @@
     <string name="emotion">表情</string>
     <string name="pleaseCheckNetwork">请检查网络</string>
     <string name="login_username_hint">请输入用户名</string>
-    <string name="ensurePasswordHint">请在此输入密码</string>
+    <string name="ensurePasswordHint">请再次输入密码</string>
     <string name="login_password_hint">请输入密码</string>
     <string name="ensurePassword">确认密码</string>
     <string name="register">注册</string>
