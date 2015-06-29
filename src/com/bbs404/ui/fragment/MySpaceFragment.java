@@ -72,6 +72,7 @@ public class MySpaceFragment extends BaseFragment implements View.OnClickListene
         genderLayout.setOnClickListener(this);
         notifyLayout.setOnClickListener(this);
         updateLayout.setOnClickListener(this);
+        usernameLayout.setOnClickListener(this);
     }
 
     @Override
@@ -93,6 +94,8 @@ public class MySpaceFragment extends BaseFragment implements View.OnClickListene
         } else if (id == R.id.updateLayout) {
             UpdateService updateService = UpdateService.getInstance(getActivity());
             updateService.showSureUpdateDialog();
+        }else if(id==R.id.usernameLayout){
+            Utils.toast("此处应可以修改名字!");
         }
     }
 
