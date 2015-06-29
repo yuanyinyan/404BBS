@@ -15,7 +15,7 @@ public abstract class InfoObject extends AVObject {
     public static final String USER = "USER";
     public static final String OBJECT_ID = "objectId";
     public static final String CREATE_AT = "createdAt";
-    public static final String UPDATE_AT = "updateAt";
+    public static final String UPDATE_AT = "updatedAt";
 
     public InfoObject() {
         super();

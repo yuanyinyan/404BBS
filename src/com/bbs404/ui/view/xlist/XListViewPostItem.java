@@ -60,16 +60,21 @@ public class XListViewPostItem extends LinearLayout implements View.OnClickListe
         TextView time = ViewHolder.findViewById(convertView, R.id.time_text);
         TextView context = ViewHolder.findViewById(convertView, R.id.content_text);
         ImageView comment = ViewHolder.findViewById(convertView, R.id.comment_view);
+        TextView commentNumber = ViewHolder.findViewById(convertView, R.id.comment_number);
 
         UserService.displayAvatar(postInfo.getAvatarUrl(), avatar);
         name.setText(postInfo.getName());
-        time.setText(prettyTime.format(postInfo.getCreateAt()));
+        time.setText(prettyTime.format(postInfo.getUpdateAt()));
         context.setText(postInfo.getContent());
         context.getEllipsize();
+        if (postInfo.getComments() > 0) {
+            commentNumber.setText(postInfo.getComments()+"");
+        }
 
         container.setOnClickListener(this);
         avatar.setOnClickListener(this);
         comment.setOnClickListener(this);
+        commentNumber.setOnClickListener(this);
 
         //TODO 支持图片、语音、点赞
         return convertView;
@@ -85,6 +90,9 @@ public class XListViewPostItem extends LinearLayout implements View.OnClickListe
                 PersonInfoActivity.goPersonInfo(getContext(), postInfo.getUserId());
                 break;
             case R.id.comment_view:
+                EditCommentActivity.goEditCommentActivity(getContext(), postInfo);
+                break;
+            case R.id.comment_number:
                 EditCommentActivity.goEditCommentActivity(getContext(), postInfo);
                 break;
         }

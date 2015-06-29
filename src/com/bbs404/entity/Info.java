@@ -1,8 +1,6 @@
 package com.bbs404.entity;
 
 import com.avos.avoscloud.AVFile;
-import com.avos.avoscloud.AVGeoPoint;
-import com.avos.avoscloud.AVObject;
 import com.bbs404.avobject.InfoObject;
 import com.bbs404.avobject.User;
 
@@ -18,6 +16,7 @@ import java.util.Date;
 public abstract class Info implements Serializable {
 
     private Date createAt;
+    private Date updateAt;
     private String UserId;
     private String avatarUrl;
     private String name;
@@ -37,6 +36,14 @@ public abstract class Info implements Serializable {
 
     public void setCreateAt(Date createAt) {
         this.createAt = createAt;
+    }
+
+    public Date getUpdateAt() {
+        return updateAt;
+    }
+
+    public void setUpdateAt(Date updateAt) {
+        this.updateAt = updateAt;
     }
 
     public String getUserId() {
@@ -69,6 +76,7 @@ public abstract class Info implements Serializable {
         this.setName("");
         this.setAvObjectId(avO.getObjectId());
         this.setCreateAt(avO.getCreatedAt());
+        this.setUpdateAt(avO.getUpdatedAt());
 
         User user = avO.getUser();
         if (user != null) {
