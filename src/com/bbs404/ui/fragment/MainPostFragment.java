@@ -14,6 +14,7 @@ import com.bbs404.adapter.MainPostAdapter;
 import com.bbs404.adapter.NearPeopleAdapter;
 import com.bbs404.avobject.PostObject;
 import com.bbs404.avobject.User;
+import com.bbs404.base.App;
 import com.bbs404.entity.Info;
 import com.bbs404.entity.PostInfo;
 import com.bbs404.service.UserService;
@@ -104,6 +105,7 @@ public class MainPostFragment extends BaseFragment implements AdapterView.OnItem
                     for (PostObject avO : avObjects) {
                         PostInfo postInfo = new PostInfo(avO);
                         postInfos.add(postInfo);
+                        App.registerUserCache(avO.getUser());
                     }
                     ChatUtils.handleListResult(listView, adapter, postInfos);
                 } else {
