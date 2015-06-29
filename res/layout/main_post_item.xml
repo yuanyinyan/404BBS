@@ -54,11 +54,22 @@
         <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-            <ImageView
-                    android:id="@+id/comment_view"
-                    android:layout_alignParentRight="true"
+
+            <TextView
+                    android:id="@+id/comment_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/base_color_text_gray"
+                    android:textSize="13sp"
+                    android:text="评论"/>
+
+            <ImageView
+                    android:id="@+id/comment_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@id/comment_number"
                     android:src="@drawable/comment_icon"/>
 
         </RelativeLayout>
