@@ -1,28 +1,22 @@
 package com.bbs404.ui.fragment;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.FindCallback;
 import com.bbs404.R;
 import com.bbs404.adapter.MainPostAdapter;
-import com.bbs404.adapter.NearPeopleAdapter;
 import com.bbs404.avobject.PostObject;
-import com.bbs404.avobject.User;
 import com.bbs404.base.App;
 import com.bbs404.entity.Info;
 import com.bbs404.entity.PostInfo;
 import com.bbs404.service.UserService;
 import com.bbs404.ui.activity.EditPostActivity;
-import com.bbs404.ui.activity.PostDetailActivity;
 import com.bbs404.ui.view.xlist.XListView;
 import com.bbs404.util.ChatUtils;
-import com.bbs404.util.NetAsyncTask;
 import com.bbs404.util.Utils;
 import com.nostra13.universalimageloader.core.listener.PauseOnScrollListener;
 
@@ -35,7 +29,7 @@ import java.util.List;
  * Date: 2015/6/7
  * Time: 15:27
  */
-public class MainPostFragment extends BaseFragment implements AdapterView.OnItemClickListener, XListView.IXListViewListener {
+public class MainPostFragment extends BaseFragment implements XListView.IXListViewListener {
     XListView listView;
     MainPostAdapter adapter;
 
@@ -67,36 +61,33 @@ public class MainPostFragment extends BaseFragment implements AdapterView.OnItem
         listView.setAdapter(adapter);
         PauseOnScrollListener listener = new PauseOnScrollListener(UserService.imageLoader, true, true);
         listView.setOnScrollListener(listener);
-        onRefresh();
+        queryPosts(true, 0, false);
     }
 
     @Override
     public void onRefresh() {
-        adapter.clear();
-        queryPosts();
+        queryPosts(false, 0, true);
     }
 
     @Override
     public void onLoadMore() {
-        queryPosts();
+        queryPosts(false, adapter.getCount(), false);
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//        PostInfo postInfo = (PostInfo) adapter.getItem(position - 1);
-//        PostDetailActivity.goPostDetailActivity(ctx, postInfo);
-
-//        Utils.toast("跳到留言详情页");
-    }
-
-    private void queryPosts() {
+    private void queryPosts(Boolean cache, int count, final Boolean clear) {
         AVQuery<PostObject> query = PostObject.getQuery(PostObject.class);
-        query.setCachePolicy(AVQuery.CachePolicy.NETWORK_ELSE_CACHE);
+        if (cache) {
+            query.setCachePolicy(AVQuery.CachePolicy.CACHE_ELSE_NETWORK);
+        } else {
+            query.setCachePolicy(AVQuery.CachePolicy.NETWORK_ELSE_CACHE);
+        }
         query.orderByDescending(PostObject.CREATE_AT);
         query.include(PostObject.IMAGES);
         query.include(PostObject.USER);
         query.include(PostObject.AUDIO);
         query.setLimit(10); //返回的数据条数
+
+        if (count > 0) query.skip(count);
 
         query.findInBackground(new FindCallback<PostObject>() {
             public void done(List<PostObject> avObjects, AVException e) {
@@ -106,6 +97,9 @@ public class MainPostFragment extends BaseFragment implements AdapterView.OnItem
                         PostInfo postInfo = new PostInfo(avO);
                         postInfos.add(postInfo);
                         App.registerUserCache(avO.getUser());
+                    }
+                    if(clear){
+                        adapter.clear();
                     }
                     ChatUtils.handleListResult(listView, adapter, postInfos);
                 } else {
