@@ -68,6 +68,7 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
         time.setText(prettyTime.format(postInfo.getCreateAt()));
         context.setText(postInfo.getContent());
         context.setEllipsize(null);
+        context.setMaxLines(100);
 
         comment.setOnClickListener(this);
 
