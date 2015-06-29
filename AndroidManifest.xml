@@ -117,7 +117,8 @@
 
         <activity
                 android:name=".ui.activity.RegisterActivity"
-                android:theme="@style/MainTheme"/>
+                android:theme="@style/MainTheme"
+                android:windowSoftInputMode="adjustResize"/>
 
         <activity
                 android:name=".ui.activity.NewFriendActivity"
