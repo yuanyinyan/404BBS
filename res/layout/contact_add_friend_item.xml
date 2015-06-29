@@ -12,7 +12,7 @@
 
         <ImageView
                 android:id="@+id/avatar"
-                style="@style/My.ImageView.Photo_Middle"
+                style="@style/My.ImageView.Photo_Avatar"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="11dp"
                 android:scaleType="fitXY"

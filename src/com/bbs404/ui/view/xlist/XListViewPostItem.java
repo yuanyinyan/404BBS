@@ -68,7 +68,9 @@ public class XListViewPostItem extends LinearLayout implements View.OnClickListe
         context.setText(postInfo.getContent());
         context.getEllipsize();
         if (postInfo.getComments() > 0) {
-            commentNumber.setText(postInfo.getComments()+"");
+            commentNumber.setText(postInfo.getComments() + "");
+        } else {
+            commentNumber.setText("评论");
         }
 
         container.setOnClickListener(this);

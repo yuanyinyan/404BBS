@@ -3,7 +3,7 @@
           package="com.bbs404"
           android:versionCode="1"
           android:versionName="0.1">
-    <uses-sdk android:minSdkVersion="13"/>
+    <uses-sdk android:minSdkVersion="15"/>
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -147,6 +147,10 @@
                 android:theme="@style/MainTheme"/>
 
         <activity
+                android:name=".ui.activity.ChangeNameActivity"
+                android:theme="@style/MainTheme"/>
+
+        <activity
                 android:name=".ui.activity.NotifySettingActivity"
                 android:theme="@style/MainTheme"/>
 
@@ -169,21 +173,6 @@
                 android:enabled="true"
                 android:process=":remote"/>
 
-        <!-- Don't forgot InitActivity -->
-        <!-- vitamio -->
-        <!--<activity-->
-        <!--android:name="io.vov.vitamio.activity.InitActivity"-->
-        <!--android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"-->
-        <!--android:launchMode="singleTop"-->
-        <!--android:theme="@android:style/Theme.NoTitleBar"-->
-        <!--android:windowSoftInputMode="stateAlwaysHidden" />-->
-
-        <!--<meta-data
-            android:name="com.baidu.lbsapi.API_KEY"
-            android:value="fnWUFPMrQfBv9nzkzFOY8ILT" />-->
-
-
-        <!--prod-->
         <meta-data
                 android:name="com.baidu.lbsapi.API_KEY"
                 android:value="vK6TghWzFvDBtlqwqoRK8FPr"/>

@@ -62,6 +62,7 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
         TextView time = (TextView) root.findViewById(R.id.time_text);
         TextView context = (TextView) root.findViewById(R.id.content_text);
         ImageView comment = (ImageView) root.findViewById(R.id.comment_view);
+        TextView commentNumber = (TextView) root.findViewById(R.id.comment_number);
 
         UserService.displayAvatar(postInfo.getAvatarUrl(), avatar);
         name.setText(postInfo.getName());
@@ -71,6 +72,8 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
         context.setMaxLines(100);
 
         comment.setOnClickListener(this);
+        commentNumber.setOnClickListener(this);
+        root.setClickable(false);
 
         xListView = (XListView) findViewById(R.id.xlistview_comment);
         xListView.setPullLoadEnable(true);
@@ -86,6 +89,9 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.comment_view:
+                EditCommentActivity.goEditCommentActivity(ctx, postInfo);
+                break;
+            case R.id.comment_number:
                 EditCommentActivity.goEditCommentActivity(ctx, postInfo);
                 break;
         }
@@ -153,4 +159,9 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        onRefresh();
+    }
 }
