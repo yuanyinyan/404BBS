@@ -63,7 +63,7 @@ public class XListViewPostItem extends LinearLayout implements View.OnClickListe
 
         UserService.displayAvatar(postInfo.getAvatarUrl(), avatar);
         name.setText(postInfo.getName());
-        time.setText(prettyTime.format(postInfo.getCreateAt()));
+        time.setText(prettyTime.format(postInfo.getUpdateAt()));
         context.setText(postInfo.getContent());
         context.getEllipsize();
 

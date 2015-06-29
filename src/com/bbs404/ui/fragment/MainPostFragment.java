@@ -81,7 +81,7 @@ public class MainPostFragment extends BaseFragment implements XListView.IXListVi
         } else {
             query.setCachePolicy(AVQuery.CachePolicy.NETWORK_ELSE_CACHE);
         }
-        query.orderByDescending(PostObject.CREATE_AT);
+        query.orderByDescending(PostObject.UPDATE_AT);
         query.include(PostObject.IMAGES);
         query.include(PostObject.USER);
         query.include(PostObject.AUDIO);
