@@ -71,6 +71,12 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
         context.setEllipsize(null);
         context.setMaxLines(100);
 
+        if (postInfo.getComments() > 0) {
+            commentNumber.setText(postInfo.getComments() + "");
+        } else {
+            commentNumber.setText("评论");
+        }
+
         comment.setOnClickListener(this);
         commentNumber.setOnClickListener(this);
         root.setClickable(false);
