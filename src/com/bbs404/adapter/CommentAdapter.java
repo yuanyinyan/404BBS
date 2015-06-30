@@ -48,6 +48,7 @@ public class CommentAdapter extends BaseListAdapter<CommentInfo> {
         comment.setVisibility(View.GONE);
         commentNumber.setVisibility(View.GONE);
         container.setClickable(false);
+        context.setMaxLines(100);
 
         UserService.displayAvatar(commentInfo.getAvatarUrl(), avatar);
         name.setText(commentInfo.getName());
