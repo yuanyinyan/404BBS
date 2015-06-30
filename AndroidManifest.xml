@@ -151,6 +151,10 @@
                 android:theme="@style/MainTheme"/>
 
         <activity
+                android:name=".ui.activity.AboutActivity"
+                android:theme="@style/MainTheme"/>
+
+        <activity
                 android:name=".ui.activity.NotifySettingActivity"
                 android:theme="@style/MainTheme"/>
 

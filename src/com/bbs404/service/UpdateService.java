@@ -14,6 +14,7 @@ import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.bbs404.R;
 import com.bbs404.avobject.UpdateInfo;
+import com.bbs404.base.App;
 import com.bbs404.util.Logger;
 import com.bbs404.util.NetAsyncTask;
 import com.bbs404.util.Utils;
@@ -169,10 +170,10 @@ public class UpdateService {
 
     public static void createUpdateInfo() throws AVException {
         UpdateInfo updateInfo = new UpdateInfo();
-        updateInfo.setVersion(1);
-        updateInfo.setAppName("appName");
-        updateInfo.setApkUrl("https://leancloud.cn");
-        updateInfo.setDesc("desc");
+        updateInfo.setVersion(getVersionCode(App.ctx));
+        updateInfo.setAppName("404留言板");
+        updateInfo.setApkUrl("http://fir.im/bbs404");
+        updateInfo.setDesc("欢迎来到404留言板");
         updateInfo.save();
     }
 

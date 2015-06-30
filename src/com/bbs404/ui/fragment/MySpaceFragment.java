@@ -18,7 +18,9 @@ import com.avos.avoscloud.SaveCallback;
 import com.bbs404.R;
 import com.bbs404.avobject.User;
 import com.bbs404.service.ChatService;
+import com.bbs404.service.UpdateService;
 import com.bbs404.service.UserService;
+import com.bbs404.ui.activity.AboutActivity;
 import com.bbs404.ui.activity.ChangeNameActivity;
 import com.bbs404.ui.activity.NotifySettingActivity;
 import com.bbs404.util.*;
@@ -32,7 +34,7 @@ public class MySpaceFragment extends BaseFragment implements View.OnClickListene
     private static final int CROP_REQUEST = 2;
     TextView usernameView, genderView;
     ImageView avatarView;
-    View usernameLayout, avatarLayout, logoutLayout,
+    View usernameLayout, avatarLayout, logoutLayout, aboutLayout,
             genderLayout, notifyLayout, updateLayout;
 
     @Override
@@ -66,6 +68,7 @@ public class MySpaceFragment extends BaseFragment implements View.OnClickListene
         notifyLayout = fragmentView.findViewById(R.id.notifyLayout);
         genderView = (TextView) fragmentView.findViewById(R.id.sex);
         updateLayout = fragmentView.findViewById(R.id.updateLayout);
+        aboutLayout = fragmentView.findViewById(R.id.aboutLayout);
 
         avatarLayout.setOnClickListener(this);
         logoutLayout.setOnClickListener(this);
@@ -73,6 +76,7 @@ public class MySpaceFragment extends BaseFragment implements View.OnClickListene
         notifyLayout.setOnClickListener(this);
         updateLayout.setOnClickListener(this);
         usernameLayout.setOnClickListener(this);
+        aboutLayout.setOnClickListener(this);
     }
 
     @Override
@@ -92,12 +96,14 @@ public class MySpaceFragment extends BaseFragment implements View.OnClickListene
         } else if (id == R.id.notifyLayout) {
             Utils.goActivity(ctx, NotifySettingActivity.class);
         } else if (id == R.id.updateLayout) {
-            Utils.toast("检查更新!");
-//            UpdateService updateService = UpdateService.getInstance(getActivity());
-//            updateService.showSureUpdateDialog();
+            UpdateService updateService = UpdateService.getInstance(getActivity());
+            updateService.showSureUpdateDialog();
         } else if (id == R.id.usernameLayout) {
             Utils.goActivity(getActivity(), ChangeNameActivity.class);
+        } else if (id == R.id.aboutLayout) {
+            Utils.goActivity(getActivity(), AboutActivity.class);
         }
+
     }
 
     SaveCallback saveCallback = new SaveCallback() {

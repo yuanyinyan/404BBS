@@ -133,4 +133,6 @@
     <string name="contact_sendRequestSucceed">该请求已经通过了</string>
     <string name="say_something">说点什么吧。。。</string>
 
+    <string name="about_text_1">对404留言板有任何意见或建议，都可以发送邮件到2212079150@qq.com联系我。\n\n下载地址：http://fir.im/bbs404\n\n或扫描二维码下载：\n\n</string>
+
 </resources>
