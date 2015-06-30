@@ -58,7 +58,7 @@ public class MainActivity extends BaseActivity {
         discoverBtn.performClick();
         initBaiduLocClient();
 
-        //UpdateService.createUpdateInfoInBackground();
+        UpdateService.createUpdateInfoInBackground();
         UpdateService updateService = UpdateService.getInstance(this);
         updateService.checkUpdate();
         App.registerUserCache(User.curUser());
